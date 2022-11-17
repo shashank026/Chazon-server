@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect("mongodb://localhost:27017/chat", {
+  .connect(process.env.PORT, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
