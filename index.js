@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect("mongodb://localhost:27017/chat", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -25,7 +25,7 @@ mongoose
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-const server = app.listen(process.env.PORT, () =>
+const server = app.listen(5000, () =>
   console.log(`Server started on ${process.env.PORT}`)
 );
 const io = socket(server, {
